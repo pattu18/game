@@ -22,7 +22,7 @@ namespace Invaders
         private Vector2 position;//自機の位置  
         private Vector2 positionbatu;//×の位置
         private Texture2D texturetama;
-        private Vector2 maru;
+        private Vector2 batu;
         private Vector2 batu2;
         private Vector2 batu3;
         /// <summary>
@@ -52,7 +52,7 @@ namespace Invaders
             positionbatu = new Vector2(352, 300);
             batu2 = new Vector2(152, 300);
             batu3 = new Vector2(552, 300);
-            maru = new Vector2(352,-100);
+            batu = new Vector2(352,-100);
             // この上にロジックを記述)
             base.Initialize();// 親クラスの初期化処理呼び出し。絶対に消すな！！
         }
@@ -124,7 +124,7 @@ namespace Invaders
             //}
             else if (keyboard.IsKeyDown(Keys.Space))
             {
-                maru = position;
+                batu = position;
             }
             //else if ((keyboard.IsKeyDown(Keys.Space) == KeyState.Pressed) && 
             //        ((keyboard.IsKeyDown(Keys.Space).== KeyState.Released))
@@ -144,8 +144,8 @@ namespace Invaders
 
 
 
-            float A1 = positionbatu.X - maru.X;
-            float B1 = positionbatu.Y - maru.Y;
+            float A1 = positionbatu.X - batu.X;
+            float B1 = positionbatu.Y - batu.Y;
 
             float AA1 = A1 * A1;
             float BB1 = B1 * B1;
@@ -164,8 +164,8 @@ namespace Invaders
 
 
 
-            float A2 = batu2.X - maru.X;
-            float B2 = batu2.Y - maru.Y;
+            float A2 = batu2.X - batu.X;
+            float B2 = batu2.Y - batu.Y;
 
             float AA2 = A2 * A2;
             float BB2 = B2 * B2;
@@ -186,8 +186,8 @@ namespace Invaders
 
 
 
-            float A3 = batu3.X - maru.X;
-            float B3 = batu3.Y - maru.Y;
+            float A3 = batu3.X - batu.X;
+            float B3 = batu3.Y - batu.Y;
 
             float AA3 = A3 * A3;
             float BB3 = B3 * B3;
@@ -202,7 +202,7 @@ namespace Invaders
             {
                 batu3.X = batu3.X + 1000;
             }
-            maru.Y -= 20;
+            batu.Y -= 20;
 
             if (position.X < 0)
             {
@@ -243,7 +243,7 @@ namespace Invaders
             spriteBatch.Draw(texturebatu, positionbatu, Color.White);
             spriteBatch.Draw(texturebatu, batu2, Color.White);
             spriteBatch.Draw(texturebatu, batu3, Color.White);
-            spriteBatch.Draw(texturetama, maru, Color.White);
+            spriteBatch.Draw(texturetama, batu, Color.White);
             spriteBatch.End();//描画終了
             //この上にロジックを記述
             base.Draw(gameTime); // 親クラスの更新処理呼び出し。絶対に消すな！！
